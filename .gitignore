@@ -1,0 +1,10 @@
+data/
+resources/*.pdf
+app/node_modules/
+app/.next/
+app/.vinext/
+app/.wrangler/
+app/dist/
+app/test-results/
+app/playwright-report/
+*.log
