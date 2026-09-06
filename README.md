@@ -34,7 +34,13 @@ The workflow at `.github/workflows/pages.yml` builds and deploys `app/dist` on p
 
 The private source PDFs under `resources/` and the old filesystem data directory are ignored by Git. Do not force-add them to a public repository. Only `app/public/erso-template.pdf`, the scrubbed public template, belongs in a Pages deployment.
 
-The weekly workflow attempts to refresh the public attendee snapshot from <https://sky.cs.berkeley.edu/people/>. If the site is unavailable, deployment continues with the last bundled snapshot.
+Every deployment (push to `main`, manual run, or Monday at 15:23 UTC) refreshes the public attendee snapshots from [Sky](https://sky.cs.berkeley.edu/people/), [SLICE](https://slice.eecs.berkeley.edu/people/), and [EPIC](https://epic.berkeley.edu/). Changes on a lab website do not trigger deployment themselves. For a local refresh, run `npm --prefix app run refresh:roster` before building.
+
+Snapshots are saved in `app/seed/sky-roster.json`, `app/seed/slice-roster.json`, and `app/seed/epic-roster.json` and compiled into the website's JavaScript. Official rosters are not stored in IndexedDB; only manually added contacts are stored there, per browser. People with matching normalized names across labs appear once, with Sky taking precedence to preserve existing IDs.
+
+Each source refreshes independently: try the live website first; if fetching or parsing fails, query the Internet Archive Wayback Availability API for its most recent available snapshot and parse that archived HTML. If the archive is unavailable or fails validation too, keep the committed snapshot. Requests time out after 20 seconds. Empty pages and results with fewer than 10 people are rejected. Deployment refreshes do not commit changes back to Git, so a later failed deployment refresh falls back to the repository snapshot, not necessarily the most recent successful deployment. Commit locally refreshed JSON files to update those fallbacks.
+
+EPIC uses its homepage person cards, verified against the August 31, 2026 Wayback capture. Archived rosters can be stale. Successful refreshes write provenance to `app/seed/<lab>-roster-meta.json` (live/archive URL, archive timestamp, refresh time) and log the source in GitHub Actions. This fallback uses the Internet Archive, not Google Cache.
 
 ## Verification
 

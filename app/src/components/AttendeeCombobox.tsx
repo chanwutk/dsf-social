@@ -91,7 +91,7 @@ export function AttendeeCombobox({ rowNumber, value, entries, onChange, onSelect
               onClick={() => select(entry)}
               role="option"
             >
-              {entry.name} — {entry.affiliation} ({entry.source === 'official' ? 'Sky roster' : 'Local contact'})
+              {entry.name} — {entry.affiliation} ({entry.source === 'official' ? 'Lab roster' : 'Local contact'})
             </li>
           ))}
         </ul>

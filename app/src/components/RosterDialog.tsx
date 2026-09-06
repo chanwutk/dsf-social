@@ -37,7 +37,8 @@ export function RosterDialog(props: Props) {
   return (
     <dialog ref={ref} onClose={props.onClose} className="list-dialog" aria-labelledby="roster-dialog-title">
       <h2 id="roster-dialog-title">Attendee roster</h2>
-      <p>The official snapshot is refreshed when the GitHub Pages site is rebuilt. Source: <a href={SKY_PEOPLE_URL}>Sky Lab people</a>.</p>
+      <p>The official roster is refreshed on each deployment, including weekly updates, and is included in the website files. Sources: <a href={SKY_PEOPLE_URL}>Sky Lab</a> and <a href="https://slice.eecs.berkeley.edu/people/">SLICE Lab</a>, and <a href="https://epic.berkeley.edu/">EPIC Lab</a>.</p>
+      <p>If a lab website is unavailable, we use a Wayback Machine archive or the bundled snapshot. Archived rosters may be out of date.</p>
       <section>
         <h3>Local contacts</h3>
         <form onSubmit={add} className="form-grid">

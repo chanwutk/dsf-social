@@ -1,103 +1,402 @@
 [
-  {"name":"Natacha Crooks","role":"Core Faculty"},
-  {"name":"Joseph Gonzalez","role":"Core Faculty"},
-  {"name":"Raluca Ada Popa","role":"Core Faculty"},
-  {"name":"Koushik Sen","role":"Core Faculty"},
-  {"name":"Ion Stoica","role":"Core Faculty"},
-  {"name":"Matei Zaharia","role":"Core Faculty"},
-  {"name":"Alvin Cheung","role":"Faculty"},
-  {"name":"Alex Dimakis","role":"Faculty"},
-  {"name":"Ken Goldberg","role":"Faculty"},
-  {"name":"Joe Hellerstein","role":"Faculty"},
-  {"name":"Mike Jordan","role":"Faculty"},
-  {"name":"Anthony Joseph","role":"Faculty"},
-  {"name":"Michael Mahoney","role":"Faculty"},
-  {"name":"Dawn Song","role":"Faculty"},
-  {"name":"Sunkanmi Adewumi","role":"GSR"},
-  {"name":"Lakshya A Agrawal","role":"GSR"},
-  {"name":"Shubham Agarwal","role":"GSR"},
-  {"name":"Diogo Antunes","role":"GSR"},
-  {"name":"Parth Asawa","role":"GSR"},
-  {"name":"Dev Bali","role":"GSR"},
-  {"name":"Asim Biswal","role":"GSR"},
-  {"name":"Shiyi Cao","role":"GSR"},
-  {"name":"Mert Cemri","role":"GSR"},
-  {"name":"David Chu","role":"GSR"},
-  {"name":"Jared Davis","role":"GSR"},
-  {"name":"Chris Douglas","role":"GSR"},
-  {"name":"Karim Elmaaroufi","role":"GSR"},
-  {"name":"Guangyu Feng","role":"GSR"},
-  {"name":"Reggie Frank","role":"GSR"},
-  {"name":"Neil Giridharan","role":"GSR"},
-  {"name":"Tyler Griggs","role":"GSR"},
-  {"name":"Jaewan Hong","role":"GSR"},
-  {"name":"Yiwei Hou","role":"GSR"},
-  {"name":"Darya Kaviani","role":"GSR"},
-  {"name":"Kaiyao Ke","role":"GSR"},
-  {"name":"Jamie Kerney","role":"GSR"},
-  {"name":"Chanwut Kittivorawong","role":"GSR"},
-  {"name":"Luke Lee","role":"GSR"},
-  {"name":"Dacheng Li","role":"GSR"},
-  {"name":"Hanchen Li","role":"GSR"},
-  {"name":"Jiaxun Li","role":"GSR"},
-  {"name":"Shu Liu","role":"GSR"},
-  {"name":"Muxi Lyu","role":"GSR"},
-  {"name":"Wenjie Ma","role":"GSR"},
-  {"name":"Qiuyang Mang","role":"GSR"},
-  {"name":"Huanzhi Mao","role":"GSR"},
-  {"name":"Ziming Mao","role":"GSR"},
-  {"name":"Mir Miroyan","role":"GSR"},
-  {"name":"Mayank Mishra","role":"GSR"},
-  {"name":"Shubham Mishra","role":"GSR"},
-  {"name":"Sarah Morin","role":"GSR"},
-  {"name":"Micah Murray","role":"GSR"},
-  {"name":"Abby O'Neill","role":"GSR"},
-  {"name":"Melissa Pan","role":"GSR"},
-  {"name":"Jiwon Park","role":"GSR"},
-  {"name":"Jongseok Park","role":"GSR"},
-  {"name":"Liana Patel","role":"GSR"},
-  {"name":"Deevashwer Rathee","role":"GSR"},
-  {"name":"Mayank Rathee","role":"GSR"},
-  {"name":"Charlie Ruan","role":"GSR"},
-  {"name":"Alon Shakevsky","role":"GSR"},
-  {"name":"Manish Shetty","role":"GSR"},
-  {"name":"Shangyin Tan","role":"GSR"},
-  {"name":"Sijun Tan","role":"GSR"},
-  {"name":"Uriah Tsai","role":"GSR"},
-  {"name":"Corban Villa","role":"GSR"},
-  {"name":"Colin Wang","role":"GSR"},
-  {"name":"Hao Wang","role":"GSR"},
-  {"name":"Yichuan Wang","role":"GSR"},
-  {"name":"Justin Wong","role":"GSR"},
-  {"name":"Tsung-Han Wu","role":"GSR"},
-  {"name":"Tian Xia","role":"GSR"},
-  {"name":"Samyukta Yagati","role":"GSR"},
-  {"name":"Shuo Yang","role":"GSR"},
-  {"name":"Jiaxiang Yu","role":"GSR"},
-  {"name":"Andy Zhang","role":"GSR"},
-  {"name":"Yilong Zhao","role":"GSR"},
-  {"name":"Alan Zhu","role":"GSR"},
-  {"name":"Jinhao Zhu","role":"GSR"},
-  {"name":"Negar Arabzadeh","role":"Postdoc"},
-  {"name":"Amit Kohli","role":"Postdoc"},
-  {"name":"Yiping Ma","role":"Postdoc"},
-  {"name":"Marius Momeu","role":"Postdoc"},
-  {"name":"Soujanya Ponnapalli","role":"Postdoc"},
-  {"name":"Hanfei Yu","role":"Postdoc"},
-  {"name":"Kattt Atchley","role":"Staff"},
-  {"name":"Eungyeom Kim","role":"Staff"},
-  {"name":"Jon Kuroda","role":"Staff"},
-  {"name":"Ivan Ortega","role":"Staff"},
-  {"name":"Aditi Swaminathan","role":"Staff"},
-  {"name":"Kailee Truong","role":"Staff"},
-  {"name":"Marco Chen","role":"Visiting Student Researcher"},
-  {"name":"Xiaoze (Jason) Fan","role":"Visiting Student Researcher"},
-  {"name":"Jintao Zhang","role":"Visiting Student Researcher"},
-  {"name":"Meredith Lee","role":"Affiliate Researcher"},
-  {"name":"Hana Pasandi","role":"Affiliate Researcher"},
-  {"name":"Shishir Patil","role":"Affiliate Researcher"},
-  {"name":"Andrea Ermellino","role":"Visiting Scholar"},
-  {"name":"Stella Rubini","role":"Visiting Scholar"},
-  {"name":"Alain Tchana","role":"Visiting Scholar"},
-  {"name":"Tianyin Xu","role":"Visiting Scholar"}
+  {
+    "name": "Natacha Crooks",
+    "role": "Core Faculty"
+  },
+  {
+    "name": "Joseph Gonzalez",
+    "role": "Core Faculty"
+  },
+  {
+    "name": "Raluca Ada Popa",
+    "role": "Core Faculty"
+  },
+  {
+    "name": "Koushik Sen",
+    "role": "Core Faculty"
+  },
+  {
+    "name": "Ion Stoica",
+    "role": "Core Faculty"
+  },
+  {
+    "name": "Matei Zaharia",
+    "role": "Core Faculty"
+  },
+  {
+    "name": "Alvin Cheung",
+    "role": "Faculty"
+  },
+  {
+    "name": "Alex Dimakis",
+    "role": "Faculty"
+  },
+  {
+    "name": "Ken Goldberg",
+    "role": "Faculty"
+  },
+  {
+    "name": "Joe Hellerstein",
+    "role": "Faculty"
+  },
+  {
+    "name": "Mike Jordan",
+    "role": "Faculty"
+  },
+  {
+    "name": "Anthony Joseph",
+    "role": "Faculty"
+  },
+  {
+    "name": "Michael Mahoney",
+    "role": "Faculty"
+  },
+  {
+    "name": "Dawn Song",
+    "role": "Faculty"
+  },
+  {
+    "name": "Sunkanmi Adewumi",
+    "role": "GSR"
+  },
+  {
+    "name": "Lakshya A Agrawal",
+    "role": "GSR"
+  },
+  {
+    "name": "Shubham Agarwal",
+    "role": "GSR"
+  },
+  {
+    "name": "Diogo Antunes",
+    "role": "GSR"
+  },
+  {
+    "name": "Parth Asawa",
+    "role": "GSR"
+  },
+  {
+    "name": "Dev Bali",
+    "role": "GSR"
+  },
+  {
+    "name": "Asim Biswal",
+    "role": "GSR"
+  },
+  {
+    "name": "Shiyi Cao",
+    "role": "GSR"
+  },
+  {
+    "name": "Mert Cemri",
+    "role": "GSR"
+  },
+  {
+    "name": "David Chu",
+    "role": "GSR"
+  },
+  {
+    "name": "Jared Davis",
+    "role": "GSR"
+  },
+  {
+    "name": "Chris Douglas",
+    "role": "GSR"
+  },
+  {
+    "name": "Karim Elmaaroufi",
+    "role": "GSR"
+  },
+  {
+    "name": "Guangyu Feng",
+    "role": "GSR"
+  },
+  {
+    "name": "Reggie Frank",
+    "role": "GSR"
+  },
+  {
+    "name": "Neil Giridharan",
+    "role": "GSR"
+  },
+  {
+    "name": "Tyler Griggs",
+    "role": "GSR"
+  },
+  {
+    "name": "Jaewan Hong",
+    "role": "GSR"
+  },
+  {
+    "name": "Yiwei Hou",
+    "role": "GSR"
+  },
+  {
+    "name": "Darya Kaviani",
+    "role": "GSR"
+  },
+  {
+    "name": "Kaiyao Ke",
+    "role": "GSR"
+  },
+  {
+    "name": "Jamie Kerney",
+    "role": "GSR"
+  },
+  {
+    "name": "Chanwut Kittivorawong",
+    "role": "GSR"
+  },
+  {
+    "name": "Luke Lee",
+    "role": "GSR"
+  },
+  {
+    "name": "Dacheng Li",
+    "role": "GSR"
+  },
+  {
+    "name": "Hanchen Li",
+    "role": "GSR"
+  },
+  {
+    "name": "Jiaxun Li",
+    "role": "GSR"
+  },
+  {
+    "name": "Shu Liu",
+    "role": "GSR"
+  },
+  {
+    "name": "Muxi Lyu",
+    "role": "GSR"
+  },
+  {
+    "name": "Wenjie Ma",
+    "role": "GSR"
+  },
+  {
+    "name": "Qiuyang Mang",
+    "role": "GSR"
+  },
+  {
+    "name": "Huanzhi Mao",
+    "role": "GSR"
+  },
+  {
+    "name": "Ziming Mao",
+    "role": "GSR"
+  },
+  {
+    "name": "Mir Miroyan",
+    "role": "GSR"
+  },
+  {
+    "name": "Mayank Mishra",
+    "role": "GSR"
+  },
+  {
+    "name": "Shubham Mishra",
+    "role": "GSR"
+  },
+  {
+    "name": "Sarah Morin",
+    "role": "GSR"
+  },
+  {
+    "name": "Micah Murray",
+    "role": "GSR"
+  },
+  {
+    "name": "Abby O'Neill",
+    "role": "GSR"
+  },
+  {
+    "name": "Melissa Pan",
+    "role": "GSR"
+  },
+  {
+    "name": "Jiwon Park",
+    "role": "GSR"
+  },
+  {
+    "name": "Jongseok Park",
+    "role": "GSR"
+  },
+  {
+    "name": "Liana Patel",
+    "role": "GSR"
+  },
+  {
+    "name": "Deevashwer Rathee",
+    "role": "GSR"
+  },
+  {
+    "name": "Mayank Rathee",
+    "role": "GSR"
+  },
+  {
+    "name": "Charlie Ruan",
+    "role": "GSR"
+  },
+  {
+    "name": "Alon Shakevsky",
+    "role": "GSR"
+  },
+  {
+    "name": "Manish Shetty",
+    "role": "GSR"
+  },
+  {
+    "name": "Shangyin Tan",
+    "role": "GSR"
+  },
+  {
+    "name": "Sijun Tan",
+    "role": "GSR"
+  },
+  {
+    "name": "Uriah Tsai",
+    "role": "GSR"
+  },
+  {
+    "name": "Corban Villa",
+    "role": "GSR"
+  },
+  {
+    "name": "Colin Wang",
+    "role": "GSR"
+  },
+  {
+    "name": "Hao Wang",
+    "role": "GSR"
+  },
+  {
+    "name": "Yichuan Wang",
+    "role": "GSR"
+  },
+  {
+    "name": "Justin Wong",
+    "role": "GSR"
+  },
+  {
+    "name": "Tsung-Han Wu",
+    "role": "GSR"
+  },
+  {
+    "name": "Tian Xia",
+    "role": "GSR"
+  },
+  {
+    "name": "Samyukta Yagati",
+    "role": "GSR"
+  },
+  {
+    "name": "Shuo Yang",
+    "role": "GSR"
+  },
+  {
+    "name": "Jiaxiang Yu",
+    "role": "GSR"
+  },
+  {
+    "name": "Andy Zhang",
+    "role": "GSR"
+  },
+  {
+    "name": "Alan Zhu",
+    "role": "GSR"
+  },
+  {
+    "name": "Jinhao Zhu",
+    "role": "GSR"
+  },
+  {
+    "name": "Negar Arabzadeh",
+    "role": "Postdoc"
+  },
+  {
+    "name": "Amit Kohli",
+    "role": "Postdoc"
+  },
+  {
+    "name": "Yiping Ma",
+    "role": "Postdoc"
+  },
+  {
+    "name": "Marius Momeu",
+    "role": "Postdoc"
+  },
+  {
+    "name": "Soujanya Ponnapalli",
+    "role": "Postdoc"
+  },
+  {
+    "name": "Hanfei Yu",
+    "role": "Postdoc"
+  },
+  {
+    "name": "Kattt Atchley",
+    "role": "Staff"
+  },
+  {
+    "name": "Eungyeom Kim",
+    "role": "Staff"
+  },
+  {
+    "name": "Jon Kuroda",
+    "role": "Staff"
+  },
+  {
+    "name": "Ivan Ortega",
+    "role": "Staff"
+  },
+  {
+    "name": "Aditi Swaminathan",
+    "role": "Staff"
+  },
+  {
+    "name": "Kailee Truong",
+    "role": "Staff"
+  },
+  {
+    "name": "Marco Chen",
+    "role": "Visiting Student Researcher"
+  },
+  {
+    "name": "Xiaoze (Jason) Fan",
+    "role": "Visiting Student Researcher"
+  },
+  {
+    "name": "Jintao Zhang",
+    "role": "Visiting Student Researcher"
+  },
+  {
+    "name": "Meredith Lee",
+    "role": "Affiliate Researcher"
+  },
+  {
+    "name": "Hana Pasandi",
+    "role": "Affiliate Researcher"
+  },
+  {
+    "name": "Shishir Patil",
+    "role": "Affiliate Researcher"
+  },
+  {
+    "name": "Andrea Ermellino",
+    "role": "Visiting Scholar"
+  },
+  {
+    "name": "Stella Rubini",
+    "role": "Visiting Scholar"
+  },
+  {
+    "name": "Alain Tchana",
+    "role": "Visiting Scholar"
+  },
+  {
+    "name": "Tianyin Xu",
+    "role": "Visiting Scholar"
+  }
 ]

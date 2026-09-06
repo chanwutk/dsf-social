@@ -1,0 +1,206 @@
+[
+  {
+    "name": "Sarah Chasins",
+    "role": "Faculty"
+  },
+  {
+    "name": "Joe Hellerstein",
+    "role": "Faculty"
+  },
+  {
+    "name": "Aditya Parameswaran",
+    "role": "Faculty"
+  },
+  {
+    "name": "Alvin Cheung",
+    "role": "Faculty"
+  },
+  {
+    "name": "Joseph Gonzalez",
+    "role": "Faculty"
+  },
+  {
+    "name": "Björn Hartmann",
+    "role": "Faculty"
+  },
+  {
+    "name": "Marti Hearst",
+    "role": "Faculty"
+  },
+  {
+    "name": "Anthony Joseph",
+    "role": "Faculty"
+  },
+  {
+    "name": "Erin Kerrison",
+    "role": "Faculty"
+  },
+  {
+    "name": "Michael Mahoney",
+    "role": "Faculty"
+  },
+  {
+    "name": "Niloufar Salehi",
+    "role": "Faculty"
+  },
+  {
+    "name": "Koushik Sen",
+    "role": "Faculty"
+  },
+  {
+    "name": "Dawn Song",
+    "role": "Faculty"
+  },
+  {
+    "name": "Matei Zaharia",
+    "role": "Faculty"
+  },
+  {
+    "name": "Colleen Chien",
+    "role": "Faculty"
+  },
+  {
+    "name": "Tristan Chambers (Criminal Justice)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "Julie Ciccolini (Criminal Justice)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "David Harding (Sociology)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "Cheryl Philips (Journalism)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "Lisa Pickoff-White (Journalism)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "Barry Scheck (Criminal Justice)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "Rebecca Wexler (Criminal Justice)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "David Barstow (Journalism)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "Tarak Shah (Criminal Justice)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "Ayyub Ibrahim (Criminal Justice)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "Galen Mancino (Criminal Justice)",
+    "role": "Collaborator"
+  },
+  {
+    "name": "Sepanta Zeighami",
+    "role": "Postdoc"
+  },
+  {
+    "name": "Yiming Lin",
+    "role": "Postdoc"
+  },
+  {
+    "name": "Madelon Hulsebos",
+    "role": "Postdoc"
+  },
+  {
+    "name": "Chanwut (Mick) Kittivorawong",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Justin Lubin",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Eric Rawn",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Shreya Shankar",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Parker Ziegler",
+    "role": "PhD Student"
+  },
+  {
+    "name": "David Minh-Duy Cao",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Bhavya Chopra",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Andrew Cheng",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Bjoern Hartmann",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Jasmine Shih",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Marlena Preigh",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Melissa Pan",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Mert Cemri",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Negin Raoof",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Nora Guo",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Ruiying Ma",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Shubham Agarwal",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Timothy Aveni",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Vivian Chan",
+    "role": "PhD Student"
+  },
+  {
+    "name": "Alena Chao",
+    "role": "Undergraduate"
+  },
+  {
+    "name": "Charlie Si",
+    "role": "Undergraduate"
+  },
+  {
+    "name": "Harrison Huang",
+    "role": "Undergraduate"
+  }
+]

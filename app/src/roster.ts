@@ -1,10 +1,13 @@
 import seed from '../seed/sky-roster.json';
+import sliceSeed from '../seed/slice-roster.json';
+import epicSeed from '../seed/epic-roster.json';
 import type { RosterEntry } from '../shared/schema';
 
 export const SKY_PEOPLE_URL = 'https://sky.cs.berkeley.edu/people/';
 
 export function roleToAffiliation(role: string) {
-  if (role === 'GSR') return 'EECS PhD Student';
+  if (role === 'Undergraduate') return 'UC Berkeley Undergraduate Student';
+  if (role === 'GSR' || role === 'PhD Student') return 'EECS PhD Student';
   if (role === 'Core Faculty' || role === 'Faculty') return 'UC Berkeley Faculty';
   if (role === 'Postdoc') return 'UC Berkeley Postdoctoral Researcher';
   if (role === 'Staff') return 'UC Berkeley Staff';
@@ -21,13 +24,24 @@ function slug(value: string) {
 }
 
 export function officialRoster(): RosterEntry[] {
-  return seed.map(({ name, role }) => ({
-    id: `sky:${slug(name)}`,
+  const snapshots: Array<{ id: string; entries: Array<{ name: string; role: string }> }> = [
+    { id: 'sky', entries: seed },
+    { id: 'slice', entries: sliceSeed },
+    { id: 'epic', entries: epicSeed },
+  ];
+  const seen = new Set<string>();
+  return snapshots.flatMap(({ id, entries }) => entries.filter(({ name }) => {
+    const key = name.normalize('NFKC').trim().replace(/\s+/g, ' ').toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).map(({ name, role }) => ({
+    id: `${id}:${slug(name)}`,
     name,
     role,
     affiliation: roleToAffiliation(role),
-    source: 'official',
-  }));
+    source: 'official' as const,
+  })));
 }
 
 export function localContact(name: string, affiliation: string): RosterEntry {

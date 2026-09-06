@@ -348,7 +348,7 @@ export default function App() {
 
             <fieldset>
               <legend>Attendees — {attendees.length} of 20</legend>
-              <p>Attendee 1 is fixed as the official host. Type a Sky roster name or enter a free-form attendee. Tab moves through rows; Down/Up selects suggestions.</p>
+              <p>Attendee 1 is fixed as the official host. Type a Lab roster name or enter a free-form attendee. Tab moves through rows; Down/Up selects suggestions.</p>
               <div className="table-scroll">
                 <table>
                   <thead><tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Occupation / affiliation</th><th scope="col">Action</th></tr></thead>
