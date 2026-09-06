@@ -82,8 +82,7 @@ export default function App() {
       listContacts(),
       getSetting<StoredFile>('template'),
       getSetting<StoredFile>('signature'),
-      getSetting<string>('currentDraftId'),
-    ]).then(([savedProfile, savedDrafts, contacts, template, signature, currentDraftId]) => {
+    ]).then(([savedProfile, savedDrafts, contacts, template, signature]) => {
       if (!active) return;
       setProfileState(savedProfile ?? null);
       setDrafts(savedDrafts);
@@ -91,8 +90,7 @@ export default function App() {
       setTemplateFile(template);
       setSignatureFile(signature);
       if (savedProfile) {
-        const selected = savedDrafts.find((item) => item.id === currentDraftId) ?? savedDrafts[0];
-        setDraft(prepareDraft(selected ?? createDraft(savedProfile), savedProfile));
+        setDraft(prepareDraft(createDraft(savedProfile), savedProfile));
       } else {
         setProfileOpen(true);
       }
@@ -103,24 +101,6 @@ export default function App() {
     });
     return () => { active = false; };
   }, []);
-
-  useEffect(() => {
-    if (!draft || !profile || loading) return;
-    setSaveState('Unsaved changes…');
-    const timeout = window.setTimeout(async () => {
-      try {
-        const saved = await saveDraft(draft);
-        setDraft((current) => current?.id === saved.id ? { ...current, updatedAt: saved.updatedAt } : current);
-        setDrafts((items) => [saved, ...items.filter((item) => item.id !== saved.id)]);
-        setSaveState('Draft saved in this browser.');
-      } catch (error) {
-        setSaveState(`Autosave failed: ${(error as Error).message}`);
-      }
-    }, 800);
-    return () => window.clearTimeout(timeout);
-  }, [draft?.businessPurpose, draft?.location, draft?.eventDate, draft?.totalAmount, draft?.eventType,
-    draft?.mealType, draft?.alcohol, draft?.otherExpenses, draft?.otherExpenseDetails,
-    draft?.draftName, JSON.stringify(draft?.attendees), profile, loading]);
 
   useEffect(() => () => { if (previewUrl) URL.revokeObjectURL(previewUrl); }, [previewUrl]);
 
@@ -227,7 +207,6 @@ export default function App() {
   function openDraft(selected: Draft) {
     if (!profile) return;
     setDraft(prepareDraft(selected, profile));
-    void setSetting('currentDraftId', selected.id);
     setDraftsOpen(false);
   }
 

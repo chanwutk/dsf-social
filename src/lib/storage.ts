@@ -6,7 +6,7 @@ export type StoredFile = {
   bytes: ArrayBuffer;
 };
 
-type SettingKey = 'profile' | 'template' | 'signature' | 'currentDraftId';
+type SettingKey = 'profile' | 'template' | 'signature';
 
 const databaseName = 'erso-reimbursement-helper';
 const databaseVersion = 1;
@@ -84,9 +84,8 @@ export async function listDrafts() {
 export async function saveDraft(draft: Draft) {
   const saved = { ...draft, updatedAt: new Date().toISOString() };
   const database = await openDatabase();
-  const transaction = database.transaction(['drafts', 'settings'], 'readwrite');
+  const transaction = database.transaction('drafts', 'readwrite');
   transaction.objectStore('drafts').put(saved);
-  transaction.objectStore('settings').put(saved.id, 'currentDraftId');
   await transactionComplete(transaction);
   database.close();
   return saved;
