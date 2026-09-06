@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js';
-import { useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import type { CSSProperties, KeyboardEvent } from 'react';
+import type { KeyboardEvent } from 'react';
 import type { RosterEntry } from '../lib/schema';
 
 type Props = {
@@ -12,33 +12,10 @@ type Props = {
   onSelect: (entry: RosterEntry) => void;
 };
 
-const GAP = 4;
-const EDGE = 8;
-
-// The listbox renders in a portal because the attendee table scrolls horizontally, and a
-// scroll container clips its overflow on both axes. Anchor it to the input by hand instead.
-function listPosition(input: HTMLInputElement): CSSProperties {
-  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-  const rect = input.getBoundingClientRect();
-  const preferred = 16 * rem;
-  const below = window.innerHeight - rect.bottom - GAP - EDGE;
-  const above = rect.top - GAP - EDGE;
-  const flip = below < Math.min(preferred, above);
-  const width = Math.min(Math.max(rect.width, 24 * rem), 40 * rem, window.innerWidth - EDGE * 2);
-  return {
-    left: Math.min(Math.max(rect.left, EDGE), window.innerWidth - width - EDGE),
-    width,
-    maxHeight: Math.max(Math.min(preferred, flip ? above : below), 4 * rem),
-    ...(flip ? { bottom: window.innerHeight - rect.top + GAP } : { top: rect.bottom + GAP }),
-  };
-}
-
 export function AttendeeCombobox({ rowNumber, value, entries, onChange, onSelect }: Props) {
   const listId = useId();
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
-  const [listStyle, setListStyle] = useState<CSSProperties>();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const fuse = useMemo(() => new Fuse(entries, { keys: ['name'], threshold: 0.38, includeScore: true }), [entries]);
 
@@ -63,18 +40,6 @@ export function AttendeeCombobox({ rowNumber, value, entries, onChange, onSelect
   }, [entries, value, fuse]);
 
   const expanded = open && suggestions.length > 0;
-
-  useLayoutEffect(() => {
-    if (!expanded) return;
-    const place = () => { if (inputRef.current) setListStyle(listPosition(inputRef.current)); };
-    place();
-    window.addEventListener('scroll', place, true);
-    window.addEventListener('resize', place);
-    return () => {
-      window.removeEventListener('scroll', place, true);
-      window.removeEventListener('resize', place);
-    };
-  }, [expanded, suggestions.length]);
 
   function select(entry: RosterEntry) {
     onSelect(entry);
@@ -102,7 +67,6 @@ export function AttendeeCombobox({ rowNumber, value, entries, onChange, onSelect
   return (
     <div className="combobox">
       <input
-        ref={inputRef}
         aria-autocomplete="list"
         aria-controls={listId}
         aria-expanded={expanded}
@@ -121,7 +85,7 @@ export function AttendeeCombobox({ rowNumber, value, entries, onChange, onSelect
         value={value}
       />
       {expanded ? createPortal(
-        <ul id={listId} role="listbox" className="suggestions" style={listStyle}>
+        <ul id={listId} role="listbox" className="suggestions">
           {suggestions.map((entry, index) => (
             <li
               aria-selected={index === activeIndex}
