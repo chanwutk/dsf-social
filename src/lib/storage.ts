@@ -1,4 +1,4 @@
-import type { Draft, Profile, RosterEntry } from '../shared/schema';
+import type { Draft, Profile, RosterEntry } from './schema';
 
 export type StoredFile = {
   name: string;

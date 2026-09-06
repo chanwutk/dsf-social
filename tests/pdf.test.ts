@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { PDFDocument, PDFName } from 'pdf-lib';
 import { describe, expect, it } from 'vitest';
-import { extractProfileFromPdf, generatePdf } from '../src/pdf';
+import { extractProfileFromPdf, generatePdf } from '../src/lib/pdf';
 import { completedDraft, profile } from './fixtures';
 
 const templatePath = fileURLToPath(new URL('../public/erso-template.pdf', import.meta.url));

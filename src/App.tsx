@@ -10,16 +10,16 @@ import {
   normalizeName,
   policyWarnings,
   validationErrors,
-} from '../shared/form-logic';
-import { DraftSchema } from '../shared/schema';
-import type { Draft, Profile, RosterEntry } from '../shared/schema';
+} from './lib/form-logic';
+import { DraftSchema } from './lib/schema';
+import type { Draft, Profile, RosterEntry } from './lib/schema';
 import { AttendeeCombobox } from './components/AttendeeCombobox';
 import { DraftsDialog } from './components/DraftsDialog';
 import { PdfPreview } from './components/PdfPreview';
 import { ProfileDialog } from './components/ProfileDialog';
 import { RosterDialog } from './components/RosterDialog';
-import { downloadJson } from './download';
-import { localContact, officialRoster } from './roster';
+import { downloadJson } from './lib/download';
+import { localContact, officialRoster } from './lib/roster';
 import {
   clearLocalData,
   deleteContact,
@@ -34,8 +34,8 @@ import {
   saveProfile,
   setSetting,
   storedFile,
-} from './storage';
-import type { StoredFile } from './storage';
+} from './lib/storage';
+import type { StoredFile } from './lib/storage';
 
 function nextBlankAttendee() {
   return { id: crypto.randomUUID(), name: '', affiliation: '' };
@@ -197,7 +197,7 @@ export default function App() {
       setActionError('');
       await rememberLocalAttendees();
       const templateBytes = templateFile?.bytes ?? await builtInTemplate();
-      const { generatePdf } = await import('./pdf');
+      const { generatePdf } = await import('./lib/pdf');
       const bytes = await generatePdf(templateBytes, draft, profile, {
         signatureBytes: signatureFile ? new Uint8Array(signatureFile.bytes) : undefined,
       });
@@ -376,7 +376,7 @@ export default function App() {
         onClose={() => { if (profile) setProfileOpen(false); }}
         onTemplate={async (file) => {
           const stored = await storedFile(file);
-          const { extractProfileFromPdf } = await import('./pdf');
+          const { extractProfileFromPdf } = await import('./lib/pdf');
           const extracted = await extractProfileFromPdf(stored.bytes);
           await setSetting('template', stored);
           await deleteSetting('signature');

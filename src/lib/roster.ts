@@ -1,7 +1,7 @@
-import seed from '../seed/sky-roster.json';
-import sliceSeed from '../seed/slice-roster.json';
-import epicSeed from '../seed/epic-roster.json';
-import type { RosterEntry } from '../shared/schema';
+import skyRoster from '../../data/sky-roster.json';
+import sliceRoster from '../../data/slice-roster.json';
+import epicRoster from '../../data/epic-roster.json';
+import type { RosterEntry } from './schema';
 
 export const SKY_PEOPLE_URL = 'https://sky.cs.berkeley.edu/people/';
 
@@ -25,9 +25,9 @@ function slug(value: string) {
 
 export function officialRoster(): RosterEntry[] {
   const snapshots: Array<{ id: string; entries: Array<{ name: string; role: string }> }> = [
-    { id: 'sky', entries: seed },
-    { id: 'slice', entries: sliceSeed },
-    { id: 'epic', entries: epicSeed },
+    { id: 'sky', entries: skyRoster },
+    { id: 'slice', entries: sliceRoster },
+    { id: 'epic', entries: epicRoster },
   ];
   const seen = new Set<string>();
   return snapshots.flatMap(({ id, entries }) => entries.filter(({ name }) => {

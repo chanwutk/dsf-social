@@ -11,10 +11,4 @@
 .DS_Store
 .env*
 *.pem
-/data/
 /resources/*.pdf
-
-# Local tool output
-/.wrangler/
-/outputs/
-/work/

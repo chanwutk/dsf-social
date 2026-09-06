@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { parseRoster } from '../scripts/roster-parser';
-import { officialRoster } from '../src/roster';
+import { officialRoster } from '../src/lib/roster';
 
 describe('lab rosters', () => {
   it.each(['h4', 'h5'] as const)('reads %s names without importing advisers or alumni', (heading) => {

@@ -9,18 +9,18 @@ const sources: Source[] = [
 ];
 
 for (const source of sources) {
-  const seedPath = new URL(`../seed/${source.id}-roster.json`, import.meta.url);
+  const snapshotPath = new URL(`../data/${source.id}-roster.json`, import.meta.url);
   try {
     const result = await fetchRoster(source);
-    await writeFile(seedPath, `${JSON.stringify(result.entries, null, 2)}\n`);
-    await writeFile(new URL(`../seed/${source.id}-roster-meta.json`, import.meta.url), `${JSON.stringify({
+    await writeFile(snapshotPath, `${JSON.stringify(result.entries, null, 2)}\n`);
+    await writeFile(new URL(`../data/${source.id}-roster-meta.json`, import.meta.url), `${JSON.stringify({
       source: source.url, retrievedFrom: result.url, kind: result.kind,
       archivedAt: result.archivedAt ?? null, refreshedAt: new Date().toISOString(),
     }, null, 2)}\n`);
     console.log(`Updated ${result.entries.length} ${source.id} entries from ${result.kind}: ${result.url}`);
   } catch (error) {
     // A lab or archive outage must not block other sources or deployment.
-    await readFile(seedPath);
+    await readFile(snapshotPath);
     console.warn(`${source.id}: keeping bundled snapshot; ${(error as Error).message}`);
   }
 }

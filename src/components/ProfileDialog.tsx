@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-import { downloadJson } from '../download';
-import { ProfileSchema } from '../../shared/schema';
-import type { Profile } from '../../shared/schema';
+import { downloadJson } from '../lib/download';
+import { ProfileSchema } from '../lib/schema';
+import type { Profile } from '../lib/schema';
 
 const emptyProfile: Profile = { name: '', address: '', email: '', employeeId: '' };
 

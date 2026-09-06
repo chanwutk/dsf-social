@@ -1,4 +1,4 @@
-import type { Draft, Profile } from '../shared/schema';
+import type { Draft, Profile } from '../src/lib/schema';
 
 export const profile: Profile = {
   name: 'Test Payee',

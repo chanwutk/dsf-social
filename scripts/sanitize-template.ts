@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { PDFDocument } from 'pdf-lib';
-import { sanitizeTemplate } from '../src/pdf';
+import { sanitizeTemplate } from '../src/lib/pdf';
 
 const run = promisify(execFile);
 const sourcePath = fileURLToPath(new URL('../resources/2026-MM-DD ERSO ENT Reimbursement Payment form.pdf', import.meta.url));

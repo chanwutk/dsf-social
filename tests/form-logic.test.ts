@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { costPerPerson, policyWarnings, validationErrors } from '../shared/form-logic';
+import { costPerPerson, policyWarnings, validationErrors } from '../src/lib/form-logic';
 import { completedDraft, profile } from './fixtures';
 
 describe('form calculations and validation', () => {

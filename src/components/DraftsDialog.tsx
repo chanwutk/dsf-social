@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import type { Draft } from '../../shared/schema';
+import type { Draft } from '../lib/schema';
 
 type Props = {
   open: boolean;

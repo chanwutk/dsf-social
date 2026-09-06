@@ -30,10 +30,10 @@ Clearing this site's browser data removes the profile and drafts. Export the pro
 
 ## Repository layout
 
-- `src/`: React UI, browser storage, and PDF handling. PDF code loads only when importing or generating a PDF.
-- `shared/`: form types, import validation, and calculations used by the app and tests.
+- `src/`: app entry point, styles, and React UI in `components/`.
+- `src/lib/`: schemas, form rules, downloads, PDF handling, rosters, and browser storage. PDF code loads only when importing or generating a PDF.
 - `scripts/`: build-time roster refresh and PDF template preparation.
-- `seed/`: saved public rosters and source metadata.
+- `data/`: saved public rosters and source metadata.
 - `public/`: the sanitized PDF template and static hosting files.
 - `tests/`: unit tests and a browser test of the production build.
 
@@ -41,15 +41,15 @@ Clearing this site's browser data removes the profile and drafts. Export the pro
 
 The workflow at `.github/workflows/pages.yml` builds and deploys `dist` on pushes to `main`, manual runs, and a weekly schedule. In the repository settings, choose **GitHub Actions** as the Pages source.
 
-The private source PDFs under `resources/` and the old filesystem data directory are ignored by Git. Do not force-add them to a public repository. Only `public/erso-template.pdf`, the scrubbed public template, belongs in a Pages deployment.
+The private source PDFs under `resources/` are ignored by Git. Do not force-add them to a public repository. Only `public/erso-template.pdf`, the scrubbed public template, belongs in a Pages deployment.
 
 Every deployment (push to `main`, manual run, or Monday at 15:23 UTC) refreshes the public attendee snapshots from [Sky](https://sky.cs.berkeley.edu/people/), [SLICE](https://slice.eecs.berkeley.edu/people/), and [EPIC](https://epic.berkeley.edu/). Changes on a lab website do not trigger deployment themselves. For a local refresh, run `npm run refresh:roster` before building.
 
-Snapshots are saved in `seed/sky-roster.json`, `seed/slice-roster.json`, and `seed/epic-roster.json` and compiled into the website's JavaScript. Official rosters are not stored in IndexedDB; only manually added contacts are stored there, per browser. People with matching normalized names across labs appear once, with Sky taking precedence to preserve existing IDs.
+Snapshots are saved in `data/sky-roster.json`, `data/slice-roster.json`, and `data/epic-roster.json` and compiled into the website's JavaScript. Official rosters are not stored in IndexedDB; only manually added contacts are stored there, per browser. People with matching normalized names across labs appear once, with Sky taking precedence to preserve existing IDs.
 
 Each source refreshes independently: try the live website first; if fetching or parsing fails, query the Internet Archive Wayback Availability API for its most recent available snapshot and parse that archived HTML. If the archive is unavailable or fails validation too, keep the committed snapshot. Requests time out after 20 seconds. Empty pages and results with fewer than 10 people are rejected. Deployment refreshes do not commit changes back to Git, so a later failed deployment refresh falls back to the repository snapshot, not necessarily the most recent successful deployment. Commit locally refreshed JSON files to update those fallbacks.
 
-EPIC uses its homepage person cards, verified against the August 31, 2026 Wayback capture. Archived rosters can be stale. Successful refreshes write provenance to `seed/<lab>-roster-meta.json` (live/archive URL, archive timestamp, refresh time) and log the source in GitHub Actions. This fallback uses the Internet Archive, not Google Cache.
+EPIC uses its homepage person cards, verified against the August 31, 2026 Wayback capture. Archived rosters can be stale. Successful refreshes write provenance to `data/<lab>-roster-meta.json` (live/archive URL, archive timestamp, refresh time) and log the source in GitHub Actions. This fallback uses the Internet Archive, not Google Cache.
 
 ## Verification
 

@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js';
 import { useId, useMemo, useState } from 'react';
 import type { KeyboardEvent } from 'react';
-import type { RosterEntry } from '../../shared/schema';
+import type { RosterEntry } from '../lib/schema';
 
 type Props = {
   rowNumber: number;

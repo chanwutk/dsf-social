@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import type { RosterEntry } from '../../shared/schema';
-import { SKY_PEOPLE_URL } from '../roster';
+import type { RosterEntry } from '../lib/schema';
+import { SKY_PEOPLE_URL } from '../lib/roster';
 
 type Props = {
   open: boolean;

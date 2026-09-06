@@ -11,9 +11,9 @@ import {
   StandardFonts,
   rgb,
 } from 'pdf-lib';
-import { ProfileSchema } from '../shared/schema';
-import type { Draft, Profile } from '../shared/schema';
-import { countedAttendees, costPerPerson, formatEventDate, formatHostDate } from '../shared/form-logic';
+import { ProfileSchema } from './schema';
+import type { Draft, Profile } from './schema';
+import { countedAttendees, costPerPerson, formatEventDate, formatHostDate } from './form-logic';
 
 const expectedTextFields = [
   '1', '2', '3', 'UCBEID.SID', 'EventBusinessPurpose', 'EVENT LOCATION', 'EVENT DATE',
