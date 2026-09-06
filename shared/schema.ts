@@ -9,16 +9,15 @@ export const ProfileSchema = z.object({
 
 export type Profile = z.infer<typeof ProfileSchema>;
 
-export const RosterEntrySchema = z.object({
-  id: z.string().min(1),
-  name: z.string().trim().min(1),
-  role: z.string().trim().min(1),
-  affiliation: z.string().trim().min(1),
-  source: z.enum(['official', 'local']),
-  lastUsedAt: z.string().datetime().optional(),
-});
-
-export type RosterEntry = z.infer<typeof RosterEntrySchema>;
+// Roster entries are constructed internally; only imported profiles and drafts need runtime validation.
+export type RosterEntry = {
+  id: string;
+  name: string;
+  role: string;
+  affiliation: string;
+  source: 'official' | 'local';
+  lastUsedAt?: string;
+};
 
 export const AttendeeSchema = z.object({
   id: z.string().min(1),

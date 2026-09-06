@@ -5,9 +5,9 @@ export default defineConfig({
   fullyParallel: true,
   use: { baseURL: 'http://localhost:5173', trace: 'on-first-retry' },
   webServer: {
-    command: 'npm run dev',
+    command: 'npm run build && npm run preview -- --port 5173',
     url: 'http://localhost:5173',
-    reuseExistingServer: true,
+    reuseExistingServer: false,
     timeout: 120_000,
   },
   projects: [

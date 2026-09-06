@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
+import { downloadJson } from '../download';
 import { ProfileSchema } from '../../shared/schema';
 import type { Profile } from '../../shared/schema';
 
@@ -77,13 +78,7 @@ export function ProfileDialog(props: Props) {
   }
 
   function exportJson() {
-    const blob = new Blob([`${JSON.stringify(value, null, 2)}\n`], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = 'erso-profile.json';
-    anchor.click();
-    URL.revokeObjectURL(url);
+    downloadJson(value, 'erso-profile.json');
   }
 
   return (

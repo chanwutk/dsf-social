@@ -18,7 +18,7 @@ import { DraftsDialog } from './components/DraftsDialog';
 import { PdfPreview } from './components/PdfPreview';
 import { ProfileDialog } from './components/ProfileDialog';
 import { RosterDialog } from './components/RosterDialog';
-import { extractProfileFromPdf, generatePdf } from './pdf';
+import { downloadJson } from './download';
 import { localContact, officialRoster } from './roster';
 import {
   clearLocalData,
@@ -53,16 +53,6 @@ async function builtInTemplate() {
   const response = await fetch(url);
   if (!response.ok) throw new Error('Could not load the built-in PDF template.');
   return response.arrayBuffer();
-}
-
-function downloadJson(value: unknown, filename: string) {
-  const blob = new Blob([`${JSON.stringify(value, null, 2)}\n`], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement('a');
-  anchor.href = url;
-  anchor.download = filename;
-  anchor.click();
-  URL.revokeObjectURL(url);
 }
 
 export default function App() {
@@ -207,6 +197,7 @@ export default function App() {
       setActionError('');
       await rememberLocalAttendees();
       const templateBytes = templateFile?.bytes ?? await builtInTemplate();
+      const { generatePdf } = await import('./pdf');
       const bytes = await generatePdf(templateBytes, draft, profile, {
         signatureBytes: signatureFile ? new Uint8Array(signatureFile.bytes) : undefined,
       });
@@ -385,6 +376,7 @@ export default function App() {
         onClose={() => { if (profile) setProfileOpen(false); }}
         onTemplate={async (file) => {
           const stored = await storedFile(file);
+          const { extractProfileFromPdf } = await import('./pdf');
           const extracted = await extractProfileFromPdf(stored.bytes);
           await setSetting('template', stored);
           await deleteSetting('signature');

@@ -50,3 +50,26 @@ test('sets up a private browser profile and uses keyboard attendee suggestions',
   await expect(page.getByRole('dialog', { name: 'Set up this browser' })).not.toBeVisible();
   await expect(page.getByLabel('Attendee 1 name')).toHaveValue('Test Payee');
 });
+
+test('loads PDF code only when generating a document', async ({ page }) => {
+  const pdfRequests: string[] = [];
+  page.on('request', (request) => {
+    if (/\/assets\/pdf-[^/]+\.js$/.test(new URL(request.url()).pathname)) pdfRequests.push(request.url());
+  });
+  await page.goto('/');
+  const setup = page.getByRole('dialog', { name: 'Set up this browser' });
+  await setup.getByLabel('Name', { exact: true }).fill('Test Payee');
+  await setup.getByLabel('Address').fill('123 Test Street');
+  await setup.getByLabel('Email').fill('test@example.com');
+  await setup.getByLabel('UCB employee or student ID').fill('1234567890');
+  await setup.getByRole('button', { name: 'Save profile' }).click();
+  await page.getByLabel('Business purpose').fill('DSF Social: Research discussion');
+  await page.getByLabel('Location', { exact: true }).fill('Berkeley');
+  await page.getByLabel('Event date').fill('2026-09-01');
+  await page.getByLabel('Total amount').fill('25');
+  expect(pdfRequests).toHaveLength(0);
+  await page.getByRole('button', { name: /Review PDF/ }).click();
+  await expect(page.getByRole('dialog', { name: 'Review PDF' })).toBeVisible();
+  expect(pdfRequests).toHaveLength(1);
+  await expect(page.getByRole('link', { name: 'Download PDF' })).toHaveAttribute('href', /^blob:/);
+});

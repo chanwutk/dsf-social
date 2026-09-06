@@ -16,11 +16,12 @@ export function AttendeeCombobox({ rowNumber, value, entries, onChange, onSelect
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
 
+  const fuse = useMemo(() => new Fuse(entries, { keys: ['name'], threshold: 0.38, includeScore: true }), [entries]);
+
   const suggestions = useMemo(() => {
     const query = value.trim();
     if (!query) return [];
     const normalized = query.toLocaleLowerCase();
-    const fuse = new Fuse(entries, { keys: ['name'], threshold: 0.38, includeScore: true });
     const scored = fuse.search(query).map(({ item, score }) => ({ item, score: score ?? 1 }));
     for (const entry of entries) {
       const name = entry.name.toLocaleLowerCase();
@@ -35,7 +36,7 @@ export function AttendeeCombobox({ rowNumber, value, entries, onChange, onSelect
       .sort((a, b) => a.score - b.score || Number(Boolean(b.item.lastUsedAt)) - Number(Boolean(a.item.lastUsedAt)) || a.item.name.localeCompare(b.item.name))
       .slice(0, 8)
       .map(({ item }) => item);
-  }, [entries, value]);
+  }, [entries, value, fuse]);
 
   function select(entry: RosterEntry) {
     onSelect(entry);

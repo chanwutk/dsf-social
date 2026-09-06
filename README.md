@@ -28,6 +28,15 @@ Selected files remain in browser storage. Generated PDFs are previewed and downl
 
 Clearing this site's browser data removes the profile and drafts. Export the profile or individual draft JSON files if a backup is useful.
 
+## Repository layout
+
+- `src/`: React UI, browser storage, and PDF handling. PDF code loads only when importing or generating a PDF.
+- `shared/`: form types, import validation, and calculations used by the app and tests.
+- `scripts/`: build-time roster refresh and PDF template preparation.
+- `seed/`: saved public rosters and source metadata.
+- `public/`: the sanitized PDF template and static hosting files.
+- `tests/`: unit tests and a browser test of the production build.
+
 ## GitHub Pages
 
 The workflow at `.github/workflows/pages.yml` builds and deploys `dist` on pushes to `main`, manual runs, and a weekly schedule. In the repository settings, choose **GitHub Actions** as the Pages source.
@@ -51,7 +60,7 @@ npm run build
 npm run test:e2e -- --project=chromium
 ```
 
-Playwright profiles are also configured for Firefox and WebKit. PDF tests generate from the public sanitized template.
+Browser tests build and serve the production app. Playwright profiles are also configured for Firefox and WebKit. PDF tests generate from the public sanitized template.
 
 To regenerate the public template after intentionally replacing the private source form, install Poppler (`pdftoppm`) and run:
 
