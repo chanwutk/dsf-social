@@ -8,7 +8,7 @@ import { PDFDocument } from 'pdf-lib';
 import { sanitizeTemplate } from '../src/pdf';
 
 const run = promisify(execFile);
-const sourcePath = fileURLToPath(new URL('../../resources/2026-MM-DD ERSO ENT Reimbursement Payment form.pdf', import.meta.url));
+const sourcePath = fileURLToPath(new URL('../resources/2026-MM-DD ERSO ENT Reimbursement Payment form.pdf', import.meta.url));
 const outputPath = fileURLToPath(new URL('../public/erso-template.pdf', import.meta.url));
 const temporaryRoot = await mkdtemp(join(tmpdir(), 'erso-public-template-'));
 

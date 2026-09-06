@@ -64,7 +64,3 @@ export const DraftSchema = z.object({
 });
 
 export type Draft = z.infer<typeof DraftSchema>;
-
-export const RosterRefreshSchema = z.object({
-  entries: z.array(RosterEntrySchema),
-});
