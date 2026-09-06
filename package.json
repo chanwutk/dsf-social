@@ -1,16 +1,44 @@
 {
-  "name": "erso-reimbursement-helper",
+  "name": "erso-reimbursement-helper-app",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "install:app": "npm --prefix app install",
-    "dev": "npm --prefix app run dev",
-    "build": "npm --prefix app run build",
-    "start": "npm --prefix app start",
-    "preview": "npm --prefix app run preview",
-    "test": "npm --prefix app test",
-    "test:e2e": "npm --prefix app run test:e2e"
-  },
   "engines": {
     "node": ">=20.11.0"
-  }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "start": "vite --host 127.0.0.1",
+    "preview": "vite preview --host 127.0.0.1",
+    "refresh:roster": "tsx scripts/refresh-roster.ts",
+    "sanitize:template": "tsx scripts/sanitize-template.ts",
+    "lint": "eslint . --ignore-pattern dist",
+    "test": "vitest --config vitest.config.ts run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "fuse.js": "^7.5.0",
+    "pdf-lib": "^1.17.1",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@openai/sites-vite-plugin": "^0.1.0 || ^0.2.0",
+    "@playwright/test": "^1.62.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.6",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "eslint": "9.39.4",
+    "cheerio": "^1.2.0",
+    "jsdom": "^30.0.1",
+    "tsx": "^4.23.12",
+    "typescript": "5.9.3",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11"
+  },
+  "type": "module"
 }
